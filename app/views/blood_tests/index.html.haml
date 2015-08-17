@@ -1,0 +1,25 @@
+%h1 Listing blood_tests
+
+%table
+  %thead
+    %tr
+      %th Bgl
+      %th Mass
+      %th Comment
+      %th
+      %th
+      %th
+
+  %tbody
+    - @blood_tests.each do |blood_test|
+      %tr
+        %td= blood_test.bgl
+        %td= blood_test.mass
+        %td= blood_test.comment
+        %td= link_to 'Show', blood_test
+        %td= link_to 'Edit', edit_blood_test_path(blood_test)
+        %td= link_to 'Destroy', blood_test, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Blood test', new_blood_test_path

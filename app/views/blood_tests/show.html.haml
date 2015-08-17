@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Bgl:
+  = @blood_test.bgl
+%p
+  %b Mass:
+  = @blood_test.mass
+%p
+  %b Comment:
+  = @blood_test.comment
+
+= link_to 'Edit', edit_blood_test_path(@blood_test)
+\|
+= link_to 'Back', blood_tests_path

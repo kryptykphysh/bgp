@@ -1,0 +1,19 @@
+= form_for @blood_test do |f|
+  - if @blood_test.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@blood_test.errors.count, "error")} prohibited this blood_test from being saved:"
+      %ul
+        - @blood_test.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :bgl
+    = f.text_field :bgl
+  .field
+    = f.label :mass
+    = f.text_field :mass
+  .field
+    = f.label :comment
+    = f.text_area :comment
+  .actions
+    = f.submit 'Save'
