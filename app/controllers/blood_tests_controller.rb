@@ -5,6 +5,7 @@ class BloodTestsController < ApplicationController
   # GET /blood_tests.json
   def index
     @blood_tests = BloodTest.all
+    @chart = BloodTest.index_chart
   end
 
   # GET /blood_tests/1
@@ -28,7 +29,7 @@ class BloodTestsController < ApplicationController
 
     respond_to do |format|
       if @blood_test.save
-        format.html { redirect_to @blood_test, notice: 'Blood test was successfully created.' }
+        format.html { redirect_to blood_tests_path, notice: 'Blood test was successfully created.' }
         format.json { render :show, status: :created, location: @blood_test }
       else
         format.html { render :new }
@@ -69,6 +70,6 @@ class BloodTestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def blood_test_params
-      params.require(:blood_test).permit(:bgl, :mass, :comment)
+      params.require(:blood_test).permit(:bgl, :mass, :comment, :created_at)
     end
 end

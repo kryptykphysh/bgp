@@ -7,6 +7,9 @@
           %li= msg
 
   .field
+    = f.label :created_at, 'Timestamp'
+    = f.datetime_select :created_at, default: Time.now.localtime
+  .field
     = f.label :bgl
     = f.text_field :bgl
   .field

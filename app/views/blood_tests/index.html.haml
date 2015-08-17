@@ -1,8 +1,12 @@
-%h1 Listing blood_tests
+%h1 Listing Blood Tests
+
+#chart
+  = render_chart(@chart, 'chart')
 
 %table
   %thead
     %tr
+      %th Timestamp
       %th Bgl
       %th Mass
       %th Comment
@@ -13,6 +17,7 @@
   %tbody
     - @blood_tests.each do |blood_test|
       %tr
+        %td= blood_test.created_at
         %td= blood_test.bgl
         %td= blood_test.mass
         %td= blood_test.comment
